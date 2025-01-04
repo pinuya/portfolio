@@ -77,7 +77,7 @@ export default function Uses() {
       <div>
         <img
           className="fixed top-0 left-0 w-full h-full object-cover opacity-10"
-          src="/assets/raiden.gif"
+          src="/assets/furina.gif"
           width="550"
           height="550"
           alt="raiden mei"
@@ -103,11 +103,11 @@ export default function Uses() {
         <div className="mb-6">
           <h1 className="text-2xl font-semibold">Design</h1>
           <p className="flex text-muted-foreground mt-4 flex-wrap">
-            <ChevronRight className="text-purple-500" /> Para o Design eu uso o
+            <ChevronRight className="text-blue-200" /> Para o Design eu uso o
             <Link to={designTool.link}>
-              <span className="relative text-purple-400 cursor-pointer group mx-1">
+              <span className="relative text-blue-300 cursor-pointer group mx-1">
                 {designTool.lang}
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-purple-400 transition-all duration-300 ease-in-out group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-300 transition-all duration-300 ease-in-out group-hover:w-full" />
               </span>
             </Link>
             {designTool.desc.replace(
@@ -122,11 +122,11 @@ export default function Uses() {
           {devTools.map((tool, index) => (
             <div key={index} className="my-4">
               <p className="flex items-center text-muted-foreground flex-wrap">
-                <ChevronRight className="text-purple-500" />
+                <ChevronRight className="text-blue-200" />
                 <Link to={tool.link} className="whitespace-nowrap">
-                  <span className="relative text-purple-400 cursor-pointer group mx-1">
+                  <span className="relative text-blue-300 cursor-pointer group mx-1">
                     {tool.lang}
-                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-purple-400 transition-all duration-300 ease-in-out group-hover:w-full" />
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-300 transition-all duration-300 ease-in-out group-hover:w-full" />
                   </span>
                 </Link>
                 <span className="whitespace-normal">

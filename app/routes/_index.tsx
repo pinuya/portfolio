@@ -209,9 +209,9 @@ export default function Main() {
                       sempre desenvolver telas robustas e responsivas. Voce pode
                       conferir meu{" "}
                       <Link to={"/curriculum"}>
-                        <span className="relative text-purple-400 cursor-pointer group">
+                        <span className="relative text-blue-300 cursor-pointer group">
                           curriculo aqui
-                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-purple-400 transition-all duration-300 ease-in-out group-hover:w-full" />
+                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-300 transition-all duration-300 ease-in-out group-hover:w-full" />
                         </span>
                       </Link>
                       .
@@ -222,9 +222,9 @@ export default function Main() {
                       está interessado nas ferramentas e softwares que utilizo,
                       confira minha{" "}
                       <Link to={"/uses"}>
-                        <span className="relative text-purple-400 cursor-pointer group">
+                        <span className="relative text-blue-300 cursor-pointer group">
                           página de uso
-                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-purple-400 transition-all duration-300 ease-in-out group-hover:w-full" />
+                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-300 transition-all duration-300 ease-in-out group-hover:w-full" />
                         </span>
                       </Link>
                       .
@@ -238,9 +238,9 @@ export default function Main() {
                     <a href="/contact">
                       <button
                         type="button"
-                        className="font-semibold relative overflow-hidden bg-transparent text-purple-500 px-4 py-1 transition duration-300 group"
+                        className="font-semibold relative overflow-hidden bg-transparent text-blue-500 px-4 py-1 transition duration-300 group"
                       >
-                        <span className="absolute inset-0 bg-purple-500 bg-opacity-50 transition-transform duration-300 scale-x-0 group-hover:scale-x-100 origin-left" />
+                        <span className="absolute inset-0 bg-blue-500 bg-opacity-50 transition-transform duration-300 scale-x-0 group-hover:scale-x-100 origin-left" />
                         <span className="flex flex-row relative gap-2 items-center z-10 text-foreground   ">
                           <SendHorizontal />
                           Envie uma mensagem
