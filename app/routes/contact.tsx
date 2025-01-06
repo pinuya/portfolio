@@ -14,14 +14,14 @@ export default function Contact() {
         <Input
           type="email"
           placeholder="Seu e-mail"
-          className="p-3 border  rounded-md focus:outline-none focus:ring-1 focus:ring-purple-400"
+          className="p-3 border  rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
         />
         <Input
           type="text"
           placeholder="Mensagem"
-          className="p-3 border  rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400"
+          className="p-3 border  rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
-        <Button className="bg-purple-500 text-white py-3 rounded-md hover:bg-purple-600 hover:scale-105 transition-transform duration-200 flex items-center justify-center gap-2">
+        <Button className="bg-blue-400 text-white py-3 rounded-md hover:bg-blue-300 hover:scale-105 transition-transform duration-200 flex items-center justify-center gap-2">
           <SendHorizontal /> Enviar
         </Button>
       </div>
