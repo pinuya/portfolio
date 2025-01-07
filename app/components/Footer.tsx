@@ -7,7 +7,7 @@ export default function Footer() {
     <div className="py-6 text-muted-foreground">
       <div className="container flex items-center justify-between">
         <div className="text-sm">
-          &copy; 2024 Tifany Alves{" "}
+          &copy; {new Date().getFullYear()} Tifany Alves{" "}
           <a href={"/aerials.html"} className="underline">
             Aerials
           </a>
