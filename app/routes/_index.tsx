@@ -25,6 +25,7 @@ import {
   CarouselItem,
 } from "~/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import Typewriter from "~/components/fancy/typewriter";
 
 export const meta: MetaFunction = () => {
   return [
@@ -82,8 +83,16 @@ export default function Main() {
                     <h1 className="self-start text-2xl text-muted-foreground tracking-widest uppercase">
                       <DecoderText text={"Tifany Nunes"} delay={500} />
                     </h1>
-                    <p className="text-3xl text-secondary-foreground font-semibold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                      Software Engineer
+                    <p className="whitespace-pre-wrap text-2xl text-secondary-foreground font-semibold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                      <span>{"Software Engineer and "}</span>
+                      <Typewriter
+                        text={["Front-End", "UX Designer"]}
+                        speed={70}
+                        className="text-purple-300"
+                        waitTime={1500}
+                        deleteSpeed={40}
+                        cursorChar={"_"}
+                      />
                     </p>
                   </motion.div>
                 </div>
@@ -209,9 +218,9 @@ export default function Main() {
                       sempre desenvolver telas robustas e responsivas. Voce pode
                       conferir meu{" "}
                       <Link to={"/curriculum"}>
-                        <span className="relative text-blue-300 cursor-pointer group">
+                        <span className="relative text-purple-300 cursor-pointer group">
                           curriculo aqui
-                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-300 transition-all duration-300 ease-in-out group-hover:w-full" />
+                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-purple-300 transition-all duration-300 ease-in-out group-hover:w-full" />
                         </span>
                       </Link>
                       .
@@ -222,9 +231,9 @@ export default function Main() {
                       está interessado nas ferramentas e softwares que utilizo,
                       confira minha{" "}
                       <Link to={"/uses"}>
-                        <span className="relative text-blue-300 cursor-pointer group">
+                        <span className="relative text-purple-300 cursor-pointer group">
                           página de uso
-                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-300 transition-all duration-300 ease-in-out group-hover:w-full" />
+                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-purple-300 transition-all duration-300 ease-in-out group-hover:w-full" />
                         </span>
                       </Link>
                       .
@@ -238,9 +247,9 @@ export default function Main() {
                     <a href="/contact">
                       <button
                         type="button"
-                        className="font-semibold relative overflow-hidden bg-transparent text-blue-500 px-4 py-1 transition duration-300 group"
+                        className="font-semibold relative overflow-hidden bg-transparent text-purple-300 px-4 py-1 transition duration-300 group"
                       >
-                        <span className="absolute inset-0 bg-blue-500 bg-opacity-50 transition-transform duration-300 scale-x-0 group-hover:scale-x-100 origin-left" />
+                        <span className="absolute inset-0 bg-purple-600 bg-opacity-50 transition-transform duration-300 scale-x-0 group-hover:scale-x-100 origin-left" />
                         <span className="flex flex-row relative gap-2 items-center z-10 text-foreground   ">
                           <SendHorizontal />
                           Envie uma mensagem

@@ -21,7 +21,7 @@ export default function Contact() {
           placeholder="Mensagem"
           className="p-3 border  rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
-        <Button className="bg-blue-400 text-white py-3 rounded-md hover:bg-blue-300 hover:scale-105 transition-transform duration-200 flex items-center justify-center gap-2">
+        <Button className="bg-purple-400 text-white py-3 rounded-md hover:bg-blue-300 hover:scale-105 transition-transform duration-200 flex items-center justify-center gap-2">
           <SendHorizontal /> Enviar
         </Button>
       </div>

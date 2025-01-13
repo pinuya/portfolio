@@ -36,7 +36,7 @@ export default function Footer() {
             <span className="sr-only">Instagram</span>
           </Link>
           <Link
-            to={"https://x.com/aerialsdev"}
+            to={"https://x.com/cucuyapro"}
             className="relative group inline-block"
           >
             <FaTwitter className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:text-blue-400" />
