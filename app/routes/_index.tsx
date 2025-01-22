@@ -29,7 +29,7 @@ import Typewriter from "~/components/fancy/typewriter";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "AERIALS" },
+    { title: "Pinuya" },
     {
       name: "Portfolio contendo informacoes e projetos pessoais de Tifany Alves",
       content: "Portfolio",
@@ -239,12 +239,12 @@ export default function Main() {
                       .
                     </p>
                     <p>
-                      Nas horas vagas gosto de jogar Roblox, Genshin, LoL e
-                      coleciono Sylvanian Families. Estou sempre disposta a
-                      ouvir sobre novos projetos entao fique à vontade para me
-                      escrever.
+                      Nas horas vagas gosto de jogar Roblox, Path of Exile, LoL
+                      e gosto de colecionar Sylvanian Families. Estou sempre
+                      disposta a ouvir sobre novos projetos entao fique à
+                      vontade para me escrever.
                     </p>
-                    <a href="/contact">
+                    {/* <a href="/contact">
                       <button
                         type="button"
                         className="font-semibold relative overflow-hidden bg-transparent text-purple-300 px-4 py-1 transition duration-300 group"
@@ -255,7 +255,7 @@ export default function Main() {
                           Envie uma mensagem
                         </span>
                       </button>
-                    </a>
+                    </a> */}
                   </div>
                 </div>
 

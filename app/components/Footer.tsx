@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="container flex items-center justify-between">
         <div className="text-sm">
           &copy; {new Date().getFullYear()} Tifany Alves{" "}
-          <a href={"/aerials.html"} className="underline">
-            Aerials
+          <a href={"/pinuya.html"} className="underline">
+            Pinuya
           </a>
           .
         </div>
