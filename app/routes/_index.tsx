@@ -76,7 +76,7 @@ export default function Main() {
             id="home"
             className="w-full h-screen py-12 md:py-24 lg:py-32"
           >
-            <div className=" container flex">
+            <div className="container flex">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 w-full">
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <motion.div {...textAnimation} className="space-y-2 ">
@@ -111,7 +111,7 @@ export default function Main() {
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.8 }}
-              className="container mx-auto px-4 py-12"
+              className="container mx-auto justify-center items-center px-4 py-12 "
             >
               <h1 className="text-2xl text-foreground tracking-widest uppercase font-semibold">
                 <DecoderText text={"Projetos"} delay={500} />
@@ -272,44 +272,44 @@ export default function Main() {
                   />
                 </div>
               </motion.div>
-            </motion.div>
-          </section>
 
-          <section
-            id="skills"
-            className="container mx-auto py-12 md:py-16 lg:py-20"
-          >
-            <div className="space-y-6 md:space-y-8 lg:space-y-10">
-              <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-                <div className="flex flex-col items-center gap-2">
-                  <Carousel
-                    plugins={[
-                      Autoplay({
-                        delay: 1500,
-                      }),
-                    ]}
-                    className="w-full"
+              <div className="container mx-auto py-12 md:py-16 lg:py-20">
+                <div className="space-y-6 md:space-y-8 lg:space-y-10">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                   >
-                    <CarouselContent className="-ml-4">
-                      {skills.map((s, index) => (
-                        <CarouselItem
-                          key={index}
-                          className="pl-1 basis-1/6 md:basis-1/2 lg:basis-1/12"
-                        >
-                          <div className="p-1">
-                            <span className="text-2xl font-semibold">
-                              {skillIcons[
-                                s.title as keyof typeof skillIcons
-                              ]?.()}
-                            </span>
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                  </Carousel>
+                    <div className="flex flex-col items-center gap-2">
+                      <Carousel
+                        plugins={[
+                          Autoplay({
+                            delay: 1500,
+                          }),
+                        ]}
+                        className="w-full"
+                      >
+                        <CarouselContent className="-ml-4">
+                          {skills.map((s, index) => (
+                            <CarouselItem
+                              key={index}
+                              className="pl-1 basis-1/6 md:basis-1/2 lg:basis-1/12"
+                            >
+                              <div className="p-1">
+                                <span className="text-2xl font-semibold">
+                                  {skillIcons[
+                                    s.title as keyof typeof skillIcons
+                                  ]?.()}
+                                </span>
+                              </div>
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                      </Carousel>
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </section>
         </main>
       </div>

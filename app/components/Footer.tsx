@@ -29,7 +29,7 @@ export default function Footer() {
             <span className="sr-only">LinkedIn</span>
           </Link>
           <Link
-            to={"https://www.instagram.com/imaerials/"}
+            to={"https://www.instagram.com/voidaerials/"}
             className="relative group inline-block"
           >
             <InstagramIcon className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:text-purple-500" />
