@@ -29,14 +29,14 @@ export default function Footer() {
             <span className="sr-only">LinkedIn</span>
           </Link>
           <Link
-            to={"https://www.instagram.com/voidaerials/"}
+            to={"https://www.instagram.com/pinuyami/"}
             className="relative group inline-block"
           >
             <InstagramIcon className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:text-purple-500" />
             <span className="sr-only">Instagram</span>
           </Link>
           <Link
-            to={"https://x.com/cucuyapro"}
+            to={"https://x.com/pinuyami"}
             className="relative group inline-block"
           >
             <FaTwitter className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:text-blue-400" />
