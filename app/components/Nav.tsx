@@ -24,7 +24,7 @@ export default function Nav() {
               <Link to={item.href}>
                 <span className="relative cursor-pointer group">
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-purple-300 transition-all duration-300 ease-in-out group-hover:w-full" />
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#EDADBD] transition-all duration-300 ease-in-out group-hover:w-full" />
                 </span>
               </Link>
             </li>
@@ -34,7 +34,7 @@ export default function Nav() {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-foreground hover:text-purple-300 focus:outline-none"
+          className="md:hidden text-foreground hover:text-[#EDADBD] focus:outline-none"
         >
           <Menu className="h-6 w-6" />
           <span className="sr-only">Abrir menu</span>
@@ -48,7 +48,7 @@ export default function Nav() {
               <Link
                 key={item.name}
                 to={item.href}
-                className="block text-foreground hover:text-purple-400 transition-colors"
+                className="block text-foreground hover:text-[#EDADBD] transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}

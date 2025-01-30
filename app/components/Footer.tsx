@@ -25,21 +25,21 @@ export default function Footer() {
             to={"https://www.linkedin.com/in/tifanyanunes/"}
             className="relative group inline-block"
           >
-            <LinkedinIcon className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:text-blue-500" />
+            <LinkedinIcon className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:text-[#EDADBD]" />
             <span className="sr-only">LinkedIn</span>
           </Link>
           <Link
             to={"https://www.instagram.com/pinuyami/"}
             className="relative group inline-block"
           >
-            <InstagramIcon className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:text-purple-500" />
+            <InstagramIcon className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:text-yellow-200" />
             <span className="sr-only">Instagram</span>
           </Link>
           <Link
             to={"https://x.com/pinuyami"}
             className="relative group inline-block"
           >
-            <FaTwitter className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:text-blue-400" />
+            <FaTwitter className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:text-blue-300" />
             <span className="sr-only">X</span>
           </Link>
         </div>

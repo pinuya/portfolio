@@ -88,7 +88,7 @@ export default function Main() {
                       <Typewriter
                         text={["Front-End", "UX Designer"]}
                         speed={70}
-                        className="text-purple-300"
+                        className="text-[#EDADBD]"
                         waitTime={1500}
                         deleteSpeed={40}
                         cursorChar={"_"}
@@ -218,9 +218,9 @@ export default function Main() {
                       sempre desenvolver telas robustas e responsivas. Voce pode
                       conferir meu{" "}
                       <Link to={"/curriculum"}>
-                        <span className="relative text-purple-300 cursor-pointer group">
+                        <span className="relative text-[#EDADBD] cursor-pointer group">
                           curriculo aqui
-                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-purple-300 transition-all duration-300 ease-in-out group-hover:w-full" />
+                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#EDADBD] transition-all duration-300 ease-in-out group-hover:w-full" />
                         </span>
                       </Link>
                       .
@@ -231,9 +231,9 @@ export default function Main() {
                       está interessado nas ferramentas e softwares que utilizo,
                       confira minha{" "}
                       <Link to={"/uses"}>
-                        <span className="relative text-purple-300 cursor-pointer group">
+                        <span className="relative text-[#EDADBD] cursor-pointer group">
                           página de uso
-                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-purple-300 transition-all duration-300 ease-in-out group-hover:w-full" />
+                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#EDADBD] transition-all duration-300 ease-in-out group-hover:w-full" />
                         </span>
                       </Link>
                       .
@@ -260,7 +260,7 @@ export default function Main() {
                 </div>
 
                 <div className="relative p-10 sm:p-0">
-                  <p className="absolute rotate-90 top-32 -right-48 font-bold text-9xl text-foreground sm:-right-60">
+                  <p className="absolute rotate-90 top-32 -right-48 font-bold text-9xl text-[#EDADBD] sm:-right-60">
                     アンテナ
                   </p>
 
