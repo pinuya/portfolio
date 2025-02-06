@@ -29,9 +29,9 @@ import Typewriter from "~/components/fancy/typewriter";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Pinuya" },
+    { title: "Tifany Nunes" },
     {
-      name: "Portfolio contendo informacoes e projetos pessoais de Tifany Alves",
+      name: "Portfolio contendo informacoes e projetos pessoais de Tifany Nunes",
       content: "Portfolio",
     },
   ];
@@ -83,17 +83,17 @@ export default function Main() {
                     <h1 className="self-start text-2xl text-muted-foreground tracking-widest uppercase">
                       <DecoderText text={"Tifany Nunes"} delay={500} />
                     </h1>
-                    <p className="whitespace-pre-wrap text-2xl text-secondary-foreground font-semibold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                    <div className="whitespace-pre-wrap text-2xl text-secondary-foreground font-semibold tracking-tighter sm:text-5xl xl:text-6xl/none">
                       <span>{"Software Engineer and "}</span>
                       <Typewriter
                         text={["Front-End", "UX Designer"]}
                         speed={70}
-                        className="text-[#EDADBD]"
+                        className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-gray/90 to-rose-300"
                         waitTime={1500}
                         deleteSpeed={40}
                         cursorChar={"_"}
                       />
-                    </p>
+                    </div>
                   </motion.div>
                 </div>
 
@@ -239,7 +239,7 @@ export default function Main() {
                       .
                     </p>
                     <p>
-                      Nas horas vagas gosto de jogar Roblox, Path of Exile, LoL
+                      Nas horas vagas gosto de jogar Roblox, Path of Exile, ler
                       e gosto de colecionar Sylvanian Families. Estou sempre
                       disposta a ouvir sobre novos projetos entao fique à
                       vontade para me escrever.
@@ -260,14 +260,13 @@ export default function Main() {
                 </div>
 
                 <div className="relative p-10 sm:p-0">
-                  <p className="absolute rotate-90 top-32 -right-48 font-bold text-9xl text-[#EDADBD] sm:-right-60">
-                    アンテナ
+                  <p className="absolute rotate-90 top-10 -right-48 font-bold text-9xl text-foreground sm:-right-36">
+                    なな
                   </p>
 
                   <motion.img
+                    className="w-[550px] h-[550px] rounded-lg"
                     src="/assets/aerials.jpg"
-                    width="550"
-                    height="550"
                     alt="aerials profile"
                   />
                 </div>

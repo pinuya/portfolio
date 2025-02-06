@@ -8,7 +8,6 @@ const menuItems = [
   { name: "Projetos", href: "/#projects" },
   { name: "Sobre", href: "/#about" },
   // { name: "Contato", href: "/contact" },
-  // { name: "Articles", href: "/articles" },
 ];
 
 export default function Nav() {
