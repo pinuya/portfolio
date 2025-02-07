@@ -5,10 +5,9 @@ import { Menu } from "lucide-react";
 
 const menuItems = [
   { name: "Home", href: "/" },
-  { name: "Projetos", href: "/#projects" },
   { name: "Sobre", href: "/#about" },
+  { name: "Projetos", href: "/#projects" },
   // { name: "Contato", href: "/contact" },
-  // { name: "Articles", href: "/articles" },
 ];
 
 export default function Nav() {
@@ -24,7 +23,7 @@ export default function Nav() {
               <Link to={item.href}>
                 <span className="relative cursor-pointer group">
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#EDADBD] transition-all duration-300 ease-in-out group-hover:w-full" />
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-custonText transition-all duration-300 ease-in-out group-hover:w-full" />
                 </span>
               </Link>
             </li>
@@ -34,7 +33,7 @@ export default function Nav() {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-foreground hover:text-[#EDADBD] focus:outline-none"
+          className="md:hidden text-foreground hover:text-custonText focus:outline-none"
         >
           <Menu className="h-6 w-6" />
           <span className="sr-only">Abrir menu</span>
@@ -48,7 +47,7 @@ export default function Nav() {
               <Link
                 key={item.name}
                 to={item.href}
-                className="block text-foreground hover:text-[#EDADBD] transition-colors"
+                className="block text-foreground hover:text-custonText transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
