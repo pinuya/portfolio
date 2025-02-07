@@ -19,28 +19,28 @@ export default function Footer() {
             to={"https://github.com/pinuya"}
             className="relative group inline-block"
           >
-            <FaGithub className="h-5 w-5 text-muted-foreground transition-all duration-500 hover:text-[#EDADBD]" />
+            <FaGithub className="h-5 w-5 text-muted-foreground transition-all duration-500 hover:text-custonText" />
             <span className="sr-only">GitHub</span>
           </Link>
           <Link
             to={"https://www.linkedin.com/in/tifanyanunes/"}
             className="relative group inline-block"
           >
-            <LinkedinIcon className="h-5 w-5 text-muted-foreground transition-all duration-500 hover:text-[#EDADBD]" />
+            <LinkedinIcon className="h-5 w-5 text-muted-foreground transition-all duration-500 hover:text-custonText" />
             <span className="sr-only">LinkedIn</span>
           </Link>
           <Link
             to={"https://www.instagram.com/pinuyami/"}
             className="relative group inline-block"
           >
-            <InstagramIcon className="h-5 w-5 text-muted-foreground transition-all duration-500 hover:text-[#EDADBD]" />
+            <InstagramIcon className="h-5 w-5 text-muted-foreground transition-all duration-500 hover:text-custonText" />
             <span className="sr-only">Instagram</span>
           </Link>
           <Link
             to={"https://x.com/pinuyami"}
             className="relative group inline-block"
           >
-            <FaTwitter className="h-5 w-5 text-muted-foreground transition-all duration-500 hover:text-[#EDADBD]" />
+            <FaTwitter className="h-5 w-5 text-muted-foreground transition-all duration-500 hover:text-custonText" />
             <span className="sr-only">X</span>
           </Link>
         </div>

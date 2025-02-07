@@ -17,9 +17,9 @@ export default function curriculum() {
         <a
           href="/curriculoTifany.pdf"
           download="Curriculo_Tifany_Alves.pdf"
-          className="font-semibold relative overflow-hidden bg-transparent text-[#EDADBD] px-4 py-1 transition duration-300 group"
+          className="font-semibold relative overflow-hidden bg-transparent text-custonText px-4 py-1 transition duration-300 group"
         >
-          <span className="absolute inset-0 bg-[#EDADBD] transition-transform duration-300 scale-x-0 group-hover:scale-x-100 origin-left" />
+          <span className="absolute inset-0 bg-custonText transition-transform duration-300 scale-x-0 group-hover:scale-x-100 origin-left" />
           <span className="flex flex-row relative gap-2 items-center z-10 text-foreground ">
             <Download /> Baixar Currículo
           </span>

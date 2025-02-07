@@ -106,6 +106,123 @@ export default function Main() {
             </div>
           </section>
 
+          <section id="about">
+            <motion.div
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.8 }}
+              className="container mx-auto px-4 py-12"
+            >
+              <h1 className="text-2xl text-foreground tracking-widest uppercase font-semibold">
+                <DecoderText text={"Olá"} delay={500} />
+              </h1>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                className="flex items-center justify-between flex-col sm:flex-row"
+              >
+                <div className="max-w-lg text-muted-foreground">
+                  <div className="gap-4 flex flex-col tracking-wide">
+                    <p>
+                      Meu nome é Tifany, atualmente moro no Brasil. Sou formada
+                      em Analise e Desenvolvimento de Sistemas, atualmente sendo
+                      uma Software Engineer com foco no Front-End. Buscando
+                      sempre desenvolver telas robustas e responsivas. Voce pode
+                      conferir meu{" "}
+                      <Link to={"/curriculum"}>
+                        <span className="relative text-custonText cursor-pointer group">
+                          curriculo aqui
+                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-custonText transition-all duration-300 ease-in-out group-hover:w-full" />
+                        </span>
+                      </Link>
+                      .
+                    </p>
+                    <p>
+                      Sinto-me confortável projetando meus próprios designs e
+                      aplicando-os na prática durante o desenvolvimento. Se você
+                      está interessado nas ferramentas e softwares que utilizo,
+                      confira minha{" "}
+                      <Link to={"/uses"}>
+                        <span className="relative text-custonText cursor-pointer group">
+                          página de uso
+                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-custonText transition-all duration-300 ease-in-out group-hover:w-full" />
+                        </span>
+                      </Link>
+                      .
+                    </p>
+                    <p>
+                      Nas horas vagas gosto de jogar Roblox, Path of Exile, ler
+                      e gosto de colecionar Sylvanian Families. Estou sempre
+                      disposta a ouvir sobre novos projetos entao fique à
+                      vontade para me escrever.
+                    </p>
+                    <Link to={"/contact"}>
+                      <button
+                        type="button"
+                        className="font-semibold relative overflow-hidden bg-transparent text-purple-300 px-4 py-1 transition duration-300 group"
+                      >
+                        <span className="absolute inset-0 bg-custonText transition-transform duration-300 scale-x-0 group-hover:scale-x-100 origin-left" />
+                        <span className="flex flex-row relative gap-2 items-center z-10 text-foreground   ">
+                          <SendHorizontal />
+                          Envie uma mensagem
+                        </span>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="relative p-10 sm:p-0">
+                  <p className="absolute rotate-90 top-10 -right-48 font-bold text-4xl text-foreground sm:-right-36 sm:text-9xl">
+                    なな
+                  </p>
+
+                  <motion.img
+                    className="w-[550px] h-[550px] aspect-square rounded-lg"
+                    src="/assets/aerials.jpg"
+                    alt="pinuya profile"
+                  />
+                </div>
+              </motion.div>
+
+              <div className="container mx-auto py-12 md:py-16 lg:py-20">
+                <div className="space-y-6 md:space-y-8 lg:space-y-10">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                  >
+                    <div className="flex flex-col items-center gap-2">
+                      <Carousel
+                        plugins={[
+                          Autoplay({
+                            delay: 1500,
+                          }),
+                        ]}
+                        className="w-full"
+                      >
+                        <CarouselContent className="-ml-4">
+                          {skills.map((s, index) => (
+                            <CarouselItem
+                              key={index}
+                              className="pl-1 basis-1/6 md:basis-1/2 lg:basis-1/12"
+                            >
+                              <div className="p-1">
+                                <span className="text-2xl font-semibold">
+                                  {skillIcons[
+                                    s.title as keyof typeof skillIcons
+                                  ]?.()}
+                                </span>
+                              </div>
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                      </Carousel>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </section>
+
           <section id="projects">
             <motion.div
               initial="offscreen"
@@ -191,123 +308,6 @@ export default function Main() {
                   </DialogContent>
                 )}
               </Dialog>
-            </motion.div>
-          </section>
-
-          <section id="about">
-            <motion.div
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.8 }}
-              className="container mx-auto px-4 py-12"
-            >
-              <h1 className="text-2xl text-foreground tracking-widest uppercase font-semibold">
-                <DecoderText text={"Olá"} delay={500} />
-              </h1>
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                className="flex items-center justify-between flex-col sm:flex-row"
-              >
-                <div className="max-w-lg text-muted-foreground">
-                  <div className="gap-4 flex flex-col tracking-wide">
-                    <p>
-                      Meu nome é Tifany, atualmente moro no Brasil. Sou formada
-                      em Analise e Desenvolvimento de Sistemas, atualmente sendo
-                      uma Software Engineer com foco no Front-End. Buscando
-                      sempre desenvolver telas robustas e responsivas. Voce pode
-                      conferir meu{" "}
-                      <Link to={"/curriculum"}>
-                        <span className="relative text-[#EDADBD] cursor-pointer group">
-                          curriculo aqui
-                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#EDADBD] transition-all duration-300 ease-in-out group-hover:w-full" />
-                        </span>
-                      </Link>
-                      .
-                    </p>
-                    <p>
-                      Sinto-me confortável projetando meus próprios designs e
-                      aplicando-os na prática durante o desenvolvimento. Se você
-                      está interessado nas ferramentas e softwares que utilizo,
-                      confira minha{" "}
-                      <Link to={"/uses"}>
-                        <span className="relative text-[#EDADBD] cursor-pointer group">
-                          página de uso
-                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#EDADBD] transition-all duration-300 ease-in-out group-hover:w-full" />
-                        </span>
-                      </Link>
-                      .
-                    </p>
-                    <p>
-                      Nas horas vagas gosto de jogar Roblox, Path of Exile, ler
-                      e gosto de colecionar Sylvanian Families. Estou sempre
-                      disposta a ouvir sobre novos projetos entao fique à
-                      vontade para me escrever.
-                    </p>
-                    {/* <a href="/contact">
-                      <button
-                        type="button"
-                        className="font-semibold relative overflow-hidden bg-transparent text-purple-300 px-4 py-1 transition duration-300 group"
-                      >
-                        <span className="absolute inset-0 bg-purple-600 bg-opacity-50 transition-transform duration-300 scale-x-0 group-hover:scale-x-100 origin-left" />
-                        <span className="flex flex-row relative gap-2 items-center z-10 text-foreground   ">
-                          <SendHorizontal />
-                          Envie uma mensagem
-                        </span>
-                      </button>
-                    </a> */}
-                  </div>
-                </div>
-
-                <div className="relative p-10 sm:p-0">
-                  <p className="absolute rotate-90 top-10 -right-48 font-bold text-9xl text-foreground sm:-right-36">
-                    なな
-                  </p>
-
-                  <motion.img
-                    className="w-[550px] h-[550px] rounded-lg"
-                    src="/assets/aerials.jpg"
-                    alt="aerials profile"
-                  />
-                </div>
-              </motion.div>
-
-              <div className="container mx-auto py-12 md:py-16 lg:py-20">
-                <div className="space-y-6 md:space-y-8 lg:space-y-10">
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                  >
-                    <div className="flex flex-col items-center gap-2">
-                      <Carousel
-                        plugins={[
-                          Autoplay({
-                            delay: 1500,
-                          }),
-                        ]}
-                        className="w-full"
-                      >
-                        <CarouselContent className="-ml-4">
-                          {skills.map((s, index) => (
-                            <CarouselItem
-                              key={index}
-                              className="pl-1 basis-1/6 md:basis-1/2 lg:basis-1/12"
-                            >
-                              <div className="p-1">
-                                <span className="text-2xl font-semibold">
-                                  {skillIcons[
-                                    s.title as keyof typeof skillIcons
-                                  ]?.()}
-                                </span>
-                              </div>
-                            </CarouselItem>
-                          ))}
-                        </CarouselContent>
-                      </Carousel>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
             </motion.div>
           </section>
         </main>
