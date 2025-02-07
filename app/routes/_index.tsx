@@ -172,13 +172,14 @@ export default function Main() {
                 </div>
 
                 <div className="relative p-10 sm:p-0">
-                  <p className="absolute rotate-90 top-10 -right-48 font-bold text-4xl text-foreground sm:-right-36 sm:text-9xl">
+                  <p className="absolute hidden sm:block rotate-90 top-10 -right-48 font-bold text-4xl text-foreground sm:-right-36 sm:text-9xl">
                     なな
                   </p>
 
                   <motion.img
-                    className="w-[550px] h-[550px] aspect-square rounded-lg"
-                    src="/assets/aerials.jpg"
+                    width={550}
+                    height={550}
+                    src="/assets/pinuya.jpg"
                     alt="pinuya profile"
                   />
                 </div>
