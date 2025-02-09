@@ -1,9 +1,9 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import { ArrowUpRight, SendHorizontal } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { motion, useScroll } from "framer-motion";
 import { FaGithub } from "react-icons/fa6";
 import type { MetaFunction } from "@remix-run/node";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -13,19 +13,15 @@ import {
 } from "~/components/ui/dialog";
 import { Button } from "~/components/ui/button";
 import type { Project } from "~/types";
-import { skillIcons } from "~/consts";
 import { getProjects, getSkills } from "~/models";
-import ScrollIndicator from "~/components/ScrollIndicator";
-import { DecoderText } from "~/components/decoder-text";
-import ThreeJsParticles from "~/components/ThreeJsParticles.client";
-import { ClientOnly } from "~/components/client-only";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "~/components/ui/carousel";
+import { Skills } from "~/components/skills";
+import { Experience } from "~/components/experience";
 import Autoplay from "embla-carousel-autoplay";
-import Typewriter from "~/components/fancy/typewriter";
 
 export const meta: MetaFunction = () => {
   return [
@@ -38,233 +34,171 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  const [projects, skills] = await Promise.all([getProjects(), getSkills()]);
+  const [projects] = await Promise.all([getProjects(), getSkills()]);
 
   return {
     projects,
-    skills,
   };
 }
 
 export default function Main() {
-  const { projects, skills } = useLoaderData<typeof loader>();
+  const { projects } = useLoaderData<typeof loader>();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const { scrollYProgress } = useScroll();
-  const defaultAnimation = (duration: number) => {
-    return {
-      initial: { opacity: 0 },
-      animate: { opacity: 1 },
-      transition: { duration },
-    };
-  };
-
-  const textAnimation = defaultAnimation(2);
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  );
 
   return (
-    <div className="flex flex-col min-h-screen w-full">
-      <motion.div
-        className="progress-bar z-10"
-        style={{ scaleX: scrollYProgress }}
-      />
-      <div className="flex flex-col min-h-[100dvh]">
+    <div className="relative flex flex-col min-h-screen w-full">
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+        <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-blue-500/10 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-purple-500/10 blur-[100px]" />
+      </div>
+
+      <div className="flex flex-col min-h-[100dvh] relative z-10 ">
         <main className="flex-1">
           <section
-            id="home"
-            className="w-full h-screen py-12 md:py-24 lg:py-32"
+            id="hero"
+            className="h-screen flex flex-col items-center justify-center gap-16 pt-20"
           >
-            <div className="container flex">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 w-full">
-                <div className="flex flex-col justify-center items-center space-y-4">
-                  <motion.div {...textAnimation} className="space-y-2 ">
-                    <h1 className="self-start text-2xl text-muted-foreground tracking-widest uppercase">
-                      <DecoderText text={"Tifany Nunes"} delay={500} />
-                    </h1>
-                    <div className="whitespace-pre-wrap text-2xl text-secondary-foreground font-semibold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                      <span>{"Software Engineer and "}</span>
-                      <Typewriter
-                        text={["Front-End", "UX Designer"]}
-                        speed={70}
-                        className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-gray/90 to-rose-300"
-                        waitTime={1500}
-                        deleteSpeed={40}
-                        cursorChar={"_"}
-                      />
-                    </div>
-                  </motion.div>
-                </div>
+            <div className="flex flex-col sm:flex-row gap-4 items-center">
+              <div>
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <h1 className="text-6xl">Hello World.</h1>
+                  <h1 className="text-4xl">
+                    I'm{" "}
+                    <span className="font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                      Tifany.
+                    </span>
+                  </h1>
+                </motion.div>
 
-                <div className="h-[600px]">
-                  <ClientOnly>{() => <ThreeJsParticles />}</ClientOnly>
-                </div>
-              </div>
-
-              <ScrollIndicator />
-            </div>
-          </section>
-
-          <section id="about">
-            <motion.div
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.8 }}
-              className="container mx-auto px-4 py-12"
-            >
-              <h1 className="text-2xl text-foreground tracking-widest uppercase font-semibold">
-                <DecoderText text={"Olá"} delay={500} />
-              </h1>
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                className="flex items-center justify-between flex-col sm:flex-row"
-              >
-                <div className="max-w-lg text-muted-foreground">
-                  <div className="gap-4 flex flex-col tracking-wide">
-                    <p>
-                      Meu nome é Tifany, atualmente moro no Brasil. Sou formada
-                      em Analise e Desenvolvimento de Sistemas, atualmente sendo
-                      uma Software Engineer com foco no Front-End. Buscando
-                      sempre desenvolver telas robustas e responsivas. Voce pode
-                      conferir meu{" "}
-                      <Link to={"/curriculum"}>
-                        <span className="relative text-custonText cursor-pointer group">
-                          curriculo aqui
-                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-custonText transition-all duration-300 ease-in-out group-hover:w-full" />
-                        </span>
-                      </Link>
-                      .
-                    </p>
-                    <p>
-                      Sinto-me confortável projetando meus próprios designs e
-                      aplicando-os na prática durante o desenvolvimento. Se você
-                      está interessado nas ferramentas e softwares que utilizo,
-                      confira minha{" "}
-                      <Link to={"/uses"}>
-                        <span className="relative text-custonText cursor-pointer group">
-                          página de uso
-                          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-custonText transition-all duration-300 ease-in-out group-hover:w-full" />
-                        </span>
-                      </Link>
-                      .
-                    </p>
-                    <p>
-                      Nas horas vagas gosto de jogar Roblox, Path of Exile, ler
-                      e gosto de colecionar Sylvanian Families. Estou sempre
-                      disposta a ouvir sobre novos projetos entao fique à
-                      vontade para me escrever.
-                    </p>
-                    <Link to={"/contact"}>
-                      <button
-                        type="button"
-                        className="font-semibold relative overflow-hidden bg-transparent text-purple-300 px-4 py-1 transition duration-300 group"
-                      >
-                        <span className="absolute inset-0 bg-custonText transition-transform duration-300 scale-x-0 group-hover:scale-x-100 origin-left" />
-                        <span className="flex flex-row relative gap-2 items-center z-10 text-foreground   ">
-                          <SendHorizontal />
-                          Envie uma mensagem
-                        </span>
-                      </button>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                >
+                  <span className="text-gray-400">
+                    Web Designer | Software Engineer
+                  </span>
+                  <p className="text-gray-400 w-96 mt-4">
+                    Uma <b>Software Engineer</b> com foco no <b>Front-End</b>.
+                    Buscando sempre desenvolver telas robustas e responsivas.
+                    Sinto-me confortável projetando meus próprios designs e
+                    aplicando-os na prática durante o desenvolvimento. Voce pode
+                    conferir meu{" "}
+                    <Link to={"/curriculum"}>
+                      <span className="relative bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent cursor-pointer group">
+                        curriculo aqui.
+                        <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ease-in-out group-hover:w-full" />
+                      </span>
+                    </Link>{" "}
+                    Se você está interessado nas ferramentas e softwares que
+                    utilizo, confira minha{" "}
+                    <Link to={"/uses"}>
+                      <span className="relative bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent cursor-pointer group">
+                        página de uso
+                        <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ease-in-out group-hover:w-full" />
+                      </span>
                     </Link>
-                  </div>
-                </div>
-
-                <div className="relative p-10 sm:p-0">
-                  <p className="absolute rotate-90 top-10 -right-48 font-bold text-4xl text-foreground sm:-right-36 sm:text-9xl">
-                    なな
+                    .
                   </p>
-
-                  <motion.img
-                    className="w-[550px] h-[550px] aspect-square rounded-lg"
-                    src="/assets/aerials.jpg"
-                    alt="pinuya profile"
-                  />
-                </div>
-              </motion.div>
-
-              <div className="container mx-auto py-12 md:py-16 lg:py-20">
-                <div className="space-y-6 md:space-y-8 lg:space-y-10">
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                  >
-                    <div className="flex flex-col items-center gap-2">
-                      <Carousel
-                        plugins={[
-                          Autoplay({
-                            delay: 1500,
-                          }),
-                        ]}
-                        className="w-full"
-                      >
-                        <CarouselContent className="-ml-4">
-                          {skills.map((s, index) => (
-                            <CarouselItem
-                              key={index}
-                              className="pl-1 basis-1/6 md:basis-1/2 lg:basis-1/12"
-                            >
-                              <div className="p-1">
-                                <span className="text-2xl font-semibold">
-                                  {skillIcons[
-                                    s.title as keyof typeof skillIcons
-                                  ]?.()}
-                                </span>
-                              </div>
-                            </CarouselItem>
-                          ))}
-                        </CarouselContent>
-                      </Carousel>
-                    </div>
-                  </motion.div>
-                </div>
+                </motion.div>
               </div>
+
+              <motion.img
+                src="/pinuya.jpg"
+                className="rounded-full"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7, duration: 0.8 }}
+              />
+            </div>
+
+            <motion.div
+              className="p-20 flex flex-col items-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            >
+              <div className="w-1 h-12 bg-gradient-to-b from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 rounded-full animate-pulse" />
             </motion.div>
           </section>
+
+          <motion.section
+            id="skills"
+            className=" flex flex-col items-center justify-center gap-10"
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+          >
+            <h1 className="text-4xl text-center">Habilidades e experiência</h1>
+
+            <div className="flex flex-col gap-28">
+              <Skills />
+
+              <Experience />
+            </div>
+          </motion.section>
 
           <section id="projects">
             <motion.div
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.8 }}
-              className="container mx-auto justify-center items-center px-4 py-12 "
+              className="flex flex-col justify-center items-center px-4 py-12"
             >
-              <h1 className="text-2xl text-foreground tracking-widest uppercase font-semibold">
-                <DecoderText text={"Projetos"} delay={500} />
-              </h1>
+              <h1 className="text-4xl my-20">Projetos</h1>
               <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="w-[400px] sm:w-[1280px]"
               >
-                {projects.map((project) => (
-                  <div
-                    key={project.id}
-                    className="mt-4 bg-card text-card-foreground rounded-lg shadow-lg overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-105"
-                    onClick={() => setSelectedProject(project)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ")
-                        setSelectedProject(project);
-                    }}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <img
-                      src={project?.image ?? ""}
-                      alt={project?.title ?? "Imagem do projeto"}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="p-4">
-                      <h3 className="text-xl font-semibold mb-2">
-                        {project.title ?? "Título do projeto"}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {project.description ?? "Descrição do projeto"}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                <Carousel
+                  className="w-full "
+                  plugins={[
+                    Autoplay({
+                      delay: 3000,
+                    }),
+                  ]}
+                >
+                  <CarouselContent>
+                    {projects.map((project) => (
+                      <CarouselItem
+                        key={project.id}
+                        className="md:basis-1/2 lg:basis-1/3"
+                      >
+                        <div
+                          className="mt-4 bg-card text-card-foreground rounded-lg shadow-lg overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-105"
+                          onClick={() => setSelectedProject(project)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ")
+                              setSelectedProject(project);
+                          }}
+                          role="button"
+                          tabIndex={0}
+                        >
+                          <img
+                            src={project?.image ?? ""}
+                            alt={project?.title ?? "Imagem do projeto"}
+                            className="w-full h-48 object-cover"
+                          />
+                          <div className="p-4">
+                            <h3 className="text-xl font-semibold mb-2">
+                              {project.title ?? "Título do projeto"}
+                            </h3>
+                            <p className="text-muted-foreground">
+                              {project.description ?? "Descrição do projeto"}
+                            </p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
               </motion.div>
 
               <Dialog
@@ -288,8 +222,11 @@ export default function Main() {
                       <div className="flex gap-2">
                         <div>
                           <Link to={selectedProject.link ?? "#"}>
-                            <Button className="gap-2" variant={"secondary"}>
-                              <FaGithub /> GitHub
+                            <Button
+                              className="font-medium px-4 py-2 text-foreground rounded-full  transition-colors duration-300"
+                              variant={"secondary"}
+                            >
+                              <FaGithub /> GitHub Repo
                             </Button>
                           </Link>
                         </div>
@@ -297,7 +234,10 @@ export default function Main() {
                         {selectedProject.website && (
                           <div>
                             <Link to={selectedProject.website}>
-                              <Button className="gap-2" variant={"secondary"}>
+                              <Button
+                                className="font-medium px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full transition-colors duration-300 hover:shadow-md"
+                                variant={"secondary"}
+                              >
                                 <ArrowUpRight className="w-4 h-4" /> Ver Site
                               </Button>
                             </Link>

@@ -1,6 +1,5 @@
 import { Link } from "@remix-run/react";
 import { ChevronRight } from "lucide-react";
-import { DecoderText } from "~/components/decoder-text";
 import { motion } from "framer-motion";
 
 const tools = [
@@ -11,7 +10,7 @@ const tools = [
   },
   {
     lang: "Visual Studio Code",
-    desc: "como meu editor de texto, com o tema Dracula.",
+    desc: "como meu editor de texto, com o tema Noctis.",
     link: "https://code.visualstudio.com/",
   },
   {
@@ -77,10 +76,10 @@ export default function Uses() {
       <div>
         <img
           className="fixed top-0 left-0 w-full h-full object-cover opacity-10"
-          src="/assets/cat.gif"
+          src="/assets/sakura.gif"
           width="550"
           height="550"
-          alt="raiden mei"
+          alt="background"
         />
       </div>
       <motion.div
@@ -91,7 +90,7 @@ export default function Uses() {
       >
         <div className="my-6">
           <h1 className="text-3xl text-foreground font-semibold">
-            <DecoderText text={"Página de Uso"} delay={500} />
+            Página de Uso
           </h1>
           <p className="text-muted-foreground mt-4">
             Uma lista um tanto abrangente de ferramentas, aplicativos, hardware

@@ -18,10 +18,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
-        sans: ["Poppins", "sans-serif"],
-        body: ["Poppins"],
-        dancingScript: ["Dancing Script"],
+        dmSans: ["DM Sans", "sans-serif"],
       },
       colors: {
         custonText: "#EDADBD",
