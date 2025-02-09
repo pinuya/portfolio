@@ -45,17 +45,15 @@ export default function Main() {
   const { projects } = useLoaderData<typeof loader>();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const { scrollYProgress } = useScroll();
-
   return (
-    <div className="relative flex flex-col min-h-screen w-full">
+    <div className="flex flex-col min-h-screen w-full">
       <div className="pointer-events-none fixed inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
         <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-blue-500/10 blur-[100px]" />
         <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-purple-500/10 blur-[100px]" />
       </div>
 
-      <div className="flex flex-col min-h-[100dvh] relative z-10 ">
+      <div className="flex flex-col min-h-[100dvh] z-10 ">
         <main className="flex-1">
           <section
             id="hero"
@@ -119,7 +117,7 @@ export default function Main() {
             </div>
 
             <motion.div
-              className="p-20 flex flex-col items-center"
+              className="p-20 hidden flex-col items-center sm:block"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
@@ -155,7 +153,7 @@ export default function Main() {
               <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="w-[400px] sm:w-[1280px]"
+                className="w-[300px] sm:w-[1280px]"
               >
                 <Carousel
                   className="w-full "
