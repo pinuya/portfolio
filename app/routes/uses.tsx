@@ -11,7 +11,7 @@ const tools = [
   },
   {
     lang: "Visual Studio Code",
-    desc: "como meu editor de texto, com o tema Dracula.",
+    desc: "como meu editor de texto, com o tema Noctis.",
     link: "https://code.visualstudio.com/",
   },
   {
@@ -80,7 +80,7 @@ export default function Uses() {
           src="/assets/cat.gif"
           width="550"
           height="550"
-          alt="raiden mei"
+          alt="background"
         />
       </div>
       <motion.div
