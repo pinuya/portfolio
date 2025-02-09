@@ -1,6 +1,5 @@
 import { Link } from "@remix-run/react";
 import { SendHorizontal } from "lucide-react";
-import { DecoderText } from "~/components/decoder-text";
 import MouseMoveEffect from "~/components/mouse-move-effect";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
@@ -18,7 +17,7 @@ export default function Contact() {
 
       <div className="relative z-10 h-[84vh] flex items-center justify-center flex-col gap-6 px-4">
         <h1 className="text-4xl text-foreground tracking-wide font-bold text-center">
-          <DecoderText text={"Diga olá"} delay={500} />
+          Diga olá
         </h1>
 
         <div className="rounded-lg w-full max-w-md flex flex-col gap-6">
@@ -47,13 +46,10 @@ export default function Contact() {
           <Link to={"/contact"}>
             <button
               type="button"
-              className="font-semibold relative overflow-hidden bg-transparent text-purple-300 px-4 py-1 transition duration-300 group"
+              className="font-semibold flex flex-row gap-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 px-4 py-1 transition duration-300 group hover:shadow-md"
             >
-              <span className="absolute inset-0 bg-custonText transition-transform duration-300 scale-x-0 group-hover:scale-x-100 origin-left" />
-              <span className="flex flex-row relative gap-2 items-center z-10 text-foreground   ">
-                <SendHorizontal />
-                Enviar mensagem
-              </span>
+              <SendHorizontal />
+              Enviar mensagem
             </button>
           </Link>
         </div>

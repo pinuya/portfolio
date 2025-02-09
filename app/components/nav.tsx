@@ -4,10 +4,9 @@ import { ModeToggle } from "~/components/mode-togle";
 import { Menu } from "lucide-react";
 
 const menuItems = [
-  { name: "Home", href: "/" },
   { name: "Sobre", href: "/#about" },
   { name: "Projetos", href: "/#projects" },
-  // { name: "Contato", href: "/contact" },
+  { name: "Contato", href: "/contact" },
 ];
 
 export default function Nav() {
@@ -15,6 +14,15 @@ export default function Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#09090B]">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div>
+          <Link
+            to={"/"}
+            className="font-semibold text-2xl bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent cursor-pointer"
+          >
+            Pinuya
+          </Link>
+        </div>
+
         <ModeToggle />
 
         <ul className="hidden md:flex space-x-6">
@@ -23,7 +31,7 @@ export default function Nav() {
               <Link to={item.href}>
                 <span className="relative cursor-pointer group">
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-custonText transition-all duration-300 ease-in-out group-hover:w-full" />
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ease-in-out group-hover:w-full" />
                 </span>
               </Link>
             </li>
@@ -33,7 +41,7 @@ export default function Nav() {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-foreground hover:text-custonText focus:outline-none"
+          className="md:hidden text-foreground hover:text-purple-500 focus:outline-none"
         >
           <Menu className="h-6 w-6" />
           <span className="sr-only">Abrir menu</span>
@@ -47,7 +55,7 @@ export default function Nav() {
               <Link
                 key={item.name}
                 to={item.href}
-                className="block text-foreground hover:text-custonText transition-colors"
+                className="block text-foreground hover:text-purple-500 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}

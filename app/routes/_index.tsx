@@ -1,9 +1,9 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import { ArrowUpRight, SendHorizontal } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { motion, useScroll } from "framer-motion";
 import { FaGithub } from "react-icons/fa6";
 import type { MetaFunction } from "@remix-run/node";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -13,19 +13,15 @@ import {
 } from "~/components/ui/dialog";
 import { Button } from "~/components/ui/button";
 import type { Project } from "~/types";
-import { skillIcons } from "~/consts";
 import { getProjects, getSkills } from "~/models";
-import ScrollIndicator from "~/components/ScrollIndicator";
-import { DecoderText } from "~/components/decoder-text";
-import ThreeJsParticles from "~/components/ThreeJsParticles.client";
-import { ClientOnly } from "~/components/client-only";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "~/components/ui/carousel";
+import { Skills } from "~/components/skills";
+import { Experience } from "~/components/experience";
 import Autoplay from "embla-carousel-autoplay";
-import Typewriter from "~/components/fancy/typewriter";
 
 export const meta: MetaFunction = () => {
   return [
@@ -38,39 +34,28 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  const [projects, skills] = await Promise.all([getProjects(), getSkills()]);
+  const [projects] = await Promise.all([getProjects(), getSkills()]);
 
   return {
     projects,
-    skills,
   };
 }
 
 export default function Main() {
-  const { projects, skills } = useLoaderData<typeof loader>();
+  const { projects } = useLoaderData<typeof loader>();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const { scrollYProgress } = useScroll();
-  const defaultAnimation = (duration: number) => {
-    return {
-      initial: { opacity: 0 },
-      animate: { opacity: 1 },
-      transition: { duration },
-    };
-  };
-
-  const textAnimation = defaultAnimation(2);
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  );
 
   return (
-    <div className="flex flex-col min-h-screen w-full">
-      <motion.div
-        className="progress-bar z-10"
-        style={{ scaleX: scrollYProgress }}
-      />
-      <div className="flex flex-col min-h-[100dvh]">
+    <div className="relative flex flex-col min-h-screen w-full">
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+        <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-blue-500/10 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-purple-500/10 blur-[100px]" />
+      </div>
+
+      <div className="flex flex-col min-h-[100dvh] relative z-10 ">
         <main className="flex-1">
           <section
             id="hero"
@@ -143,48 +128,77 @@ export default function Main() {
             </motion.div>
           </section>
 
+          <motion.section
+            id="skills"
+            className=" flex flex-col items-center justify-center gap-10"
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+          >
+            <h1 className="text-4xl text-center">Habilidades e experiência</h1>
+
+            <div className="flex flex-col gap-28">
+              <Skills />
+
+              <Experience />
+            </div>
+          </motion.section>
+
           <section id="projects">
             <motion.div
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.8 }}
-              className="container mx-auto justify-center items-center px-4 py-12 "
+              className="flex flex-col justify-center items-center px-4 py-12"
             >
-              <h1 className="text-2xl text-foreground tracking-widest uppercase font-semibold">
-                <DecoderText text={"Projetos"} delay={500} />
-              </h1>
+              <h1 className="text-4xl my-20">Projetos</h1>
               <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="w-[400px] sm:w-[1280px]"
               >
-                {projects.map((project) => (
-                  <div
-                    key={project.id}
-                    className="mt-4 bg-card text-card-foreground rounded-lg shadow-lg overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-105"
-                    onClick={() => setSelectedProject(project)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ")
-                        setSelectedProject(project);
-                    }}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <img
-                      src={project?.image ?? ""}
-                      alt={project?.title ?? "Imagem do projeto"}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="p-4">
-                      <h3 className="text-xl font-semibold mb-2">
-                        {project.title ?? "Título do projeto"}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {project.description ?? "Descrição do projeto"}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                <Carousel
+                  className="w-full "
+                  plugins={[
+                    Autoplay({
+                      delay: 3000,
+                    }),
+                  ]}
+                >
+                  <CarouselContent>
+                    {projects.map((project) => (
+                      <CarouselItem
+                        key={project.id}
+                        className="md:basis-1/2 lg:basis-1/3"
+                      >
+                        <div
+                          className="mt-4 bg-card text-card-foreground rounded-lg shadow-lg overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-105"
+                          onClick={() => setSelectedProject(project)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ")
+                              setSelectedProject(project);
+                          }}
+                          role="button"
+                          tabIndex={0}
+                        >
+                          <img
+                            src={project?.image ?? ""}
+                            alt={project?.title ?? "Imagem do projeto"}
+                            className="w-full h-48 object-cover"
+                          />
+                          <div className="p-4">
+                            <h3 className="text-xl font-semibold mb-2">
+                              {project.title ?? "Título do projeto"}
+                            </h3>
+                            <p className="text-muted-foreground">
+                              {project.description ?? "Descrição do projeto"}
+                            </p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
               </motion.div>
 
               <Dialog
@@ -208,8 +222,11 @@ export default function Main() {
                       <div className="flex gap-2">
                         <div>
                           <Link to={selectedProject.link ?? "#"}>
-                            <Button className="gap-2" variant={"secondary"}>
-                              <FaGithub /> GitHub
+                            <Button
+                              className="font-medium px-4 py-2 text-foreground rounded-full  transition-colors duration-300"
+                              variant={"secondary"}
+                            >
+                              <FaGithub /> GitHub Repo
                             </Button>
                           </Link>
                         </div>
@@ -217,7 +234,10 @@ export default function Main() {
                         {selectedProject.website && (
                           <div>
                             <Link to={selectedProject.website}>
-                              <Button className="gap-2" variant={"secondary"}>
+                              <Button
+                                className="font-medium px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full transition-colors duration-300 hover:shadow-md"
+                                variant={"secondary"}
+                              >
                                 <ArrowUpRight className="w-4 h-4" /> Ver Site
                               </Button>
                             </Link>

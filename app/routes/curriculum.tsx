@@ -1,13 +1,12 @@
 import { Download } from "lucide-react";
 import { ClientOnly } from "~/components/client-only";
 import Curriculum from "~/components/Curriculum.client";
-import { DecoderText } from "~/components/decoder-text";
 
 export default function curriculum() {
   return (
     <div className="justify-center items-center flex flex-col">
       <h1 className="text-2xl text-foreground tracking-widest text-center uppercase font-semibold">
-        <DecoderText text={"Meu Curriculo"} delay={500} />
+        Meu Curriculo
       </h1>
 
       <span className="text-center text-gray-400 font-xs">
