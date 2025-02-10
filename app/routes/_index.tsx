@@ -147,7 +147,7 @@ export default function Main() {
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.8 }}
-              className="flex flex-col justify-center items-center px-4 py-12"
+              className="flex flex-col justify-center items-center"
             >
               <h1 className="text-4xl my-20">Projetos</h1>
               <motion.div
