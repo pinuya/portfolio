@@ -1,7 +1,6 @@
 import { Link } from "@remix-run/react";
 import { SendHorizontal } from "lucide-react";
 import MouseMoveEffect from "~/components/mouse-move-effect";
-import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 
 export default function Contact() {
@@ -57,13 +56,3 @@ export default function Contact() {
     </div>
   );
 }
-
-// export default function Contact() {
-//   return (
-//     <div className="h-[87vh] flex flex-col justify-center items-center gap-4">
-//       <img src="/assets/anime-eto.gif" alt="gif" width="300" height="300" />
-//       <h1 className="text-2xl font-bold">Em breve...</h1>
-//       <span>Página em desenvolvimento</span>
-//     </div>
-//   );
-// }

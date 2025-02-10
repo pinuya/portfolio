@@ -128,7 +128,7 @@ export default function Main() {
 
           <motion.section
             id="skills"
-            className=" flex flex-col items-center justify-center gap-10"
+            className=" flex flex-col items-center justify-center gap-10 py-10"
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
