@@ -101,11 +101,11 @@ export default function Uses() {
         <div className="mb-6">
           <h1 className="text-2xl font-semibold">Design</h1>
           <p className="flex text-muted-foreground mt-4 flex-wrap">
-            <ChevronRight className="text-custonText" /> Para o Design eu uso o
+            <ChevronRight className="text-purple-500" /> Para o Design eu uso o
             <Link to={designTool.link}>
-              <span className="relative text-custonText cursor-pointer group mx-1">
+              <span className="relative bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent cursor-pointer group mx-1">
                 {designTool.lang}
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-custonText transition-all duration-300 ease-in-out group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ease-in-out group-hover:w-full" />
               </span>
             </Link>
             {designTool.desc.replace(
@@ -120,11 +120,11 @@ export default function Uses() {
           {devTools.map((tool, index) => (
             <div key={index} className="my-4">
               <p className="flex items-center text-muted-foreground flex-wrap">
-                <ChevronRight className="text-custonText" />
+                <ChevronRight className="text-purple-500" />
                 <Link to={tool.link} className="whitespace-nowrap">
-                  <span className="relative text-custonText cursor-pointer group mx-1">
+                  <span className="relative bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent cursor-pointer group mx-1">
                     {tool.lang}
-                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-custonText transition-all duration-300 ease-in-out group-hover:w-full" />
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ease-in-out group-hover:w-full" />
                   </span>
                 </Link>
                 <span className="whitespace-normal">

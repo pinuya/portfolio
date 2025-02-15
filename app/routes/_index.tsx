@@ -109,7 +109,7 @@ export default function Main() {
 
               <motion.img
                 src="/pinuya.jpg"
-                className="rounded-full"
+                className="rounded-full w-96"
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
