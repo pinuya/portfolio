@@ -45,7 +45,7 @@ export default function Contact() {
           <Link to={"/contact"}>
             <button
               type="button"
-              className="font-semibold flex flex-row gap-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 px-4 py-1 transition duration-300 group hover:shadow-md"
+              className="inline-flex bg-gradient-to-r from-blue-500 to-purple-500 gap-2 items-center px-4 py-2 text-sm font-medium text-foreground rounded-md transition-transform duration-300 transform hover:scale-105 hover:-translate-y-1"
             >
               <SendHorizontal />
               Enviar mensagem

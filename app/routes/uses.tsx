@@ -76,7 +76,7 @@ export default function Uses() {
       <div>
         <img
           className="fixed top-0 left-0 w-full h-full object-cover opacity-10"
-          src="/assets/sakura.gif"
+          src="/assets/k-on.gif"
           width="550"
           height="550"
           alt="background"
@@ -95,6 +95,7 @@ export default function Uses() {
           <p className="text-muted-foreground mt-4">
             Uma lista um tanto abrangente de ferramentas, aplicativos, hardware
             e muito mais que uso diariamente para projetar e codificar coisas.
+            Sim o gif de fundo e do anime K-On.
           </p>
         </div>
 
