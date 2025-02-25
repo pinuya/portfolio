@@ -42,7 +42,7 @@ export function Experience() {
             </div>
 
             <div className="mt-2">
-              <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-transparent">
                 {exp.role}
               </span>
 
@@ -52,7 +52,7 @@ export function Experience() {
             </div>
 
             {index !== experiences.length - 1 && (
-              <div className="text-3xl tracking-widest text-center rotate-90 mt-4 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+              <div className="text-3xl tracking-widest text-center rotate-90 mt-4 bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-transparent">
                 ...
               </div>
             )}

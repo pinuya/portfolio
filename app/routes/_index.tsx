@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { ArrowUpRight } from "lucide-react";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa6";
 import type { MetaFunction } from "@remix-run/node";
 import { useState } from "react";
@@ -50,7 +50,7 @@ export default function Main() {
       <div className="pointer-events-none fixed inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
         <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-blue-500/10 blur-[100px]" />
-        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-purple-500/10 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-cyan-500/10 blur-[100px]" />
       </div>
 
       <div className="flex flex-col min-h-[100dvh] z-10 ">
@@ -69,7 +69,7 @@ export default function Main() {
                   <h1 className="text-6xl">Hello World.</h1>
                   <h1 className="text-4xl">
                     I'm{" "}
-                    <span className="font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                    <span className="font-bold bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-transparent">
                       Tifany.
                     </span>
                   </h1>
@@ -89,17 +89,17 @@ export default function Main() {
                     aplicando-os na prática durante o desenvolvimento. Voce pode
                     conferir meu{" "}
                     <Link to={"/curriculum"}>
-                      <span className="relative bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent cursor-pointer group">
+                      <span className="relative bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-transparent cursor-pointer group">
                         curriculo aqui.
-                        <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ease-in-out group-hover:w-full" />
+                        <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-lime-300 to-cyan-500 transition-all duration-300 ease-in-out group-hover:w-full" />
                       </span>
                     </Link>{" "}
                     Se você está interessado nas ferramentas e softwares que
                     utilizo, confira minha{" "}
                     <Link to={"/uses"}>
-                      <span className="relative bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent cursor-pointer group">
+                      <span className="relative bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-transparent cursor-pointer group">
                         página de uso
-                        <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ease-in-out group-hover:w-full" />
+                        <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-lime-300 to-cyan-500 transition-all duration-300 ease-in-out group-hover:w-full" />
                       </span>
                     </Link>
                     .
@@ -109,7 +109,7 @@ export default function Main() {
 
               <motion.img
                 src="/pinuya.jpg"
-                className="rounded-full w-96"
+                className="rounded-full aspect-square w-96"
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
@@ -122,7 +122,7 @@ export default function Main() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
             >
-              <div className="w-1 h-12 bg-gradient-to-b from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 rounded-full animate-pulse" />
+              <div className="w-1 h-12 bg-gradient-to-b from-lime-300 to-cyan-600 dark:from-lime-400 dark:to-cyan-400 rounded-full animate-pulse" />
             </motion.div>
           </section>
 
@@ -233,7 +233,7 @@ export default function Main() {
                           <div>
                             <Link to={selectedProject.website}>
                               <Button
-                                className="font-medium px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full transition-colors duration-300 hover:shadow-md"
+                                className="font-medium px-4 py-2 bg-gradient-to-r from-lime-300 to-cyan-500 text-white rounded-full transition-colors duration-300 hover:shadow-md"
                                 variant={"secondary"}
                               >
                                 <ArrowUpRight className="w-4 h-4" /> Ver Site
