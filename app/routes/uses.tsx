@@ -76,7 +76,7 @@ export default function Uses() {
       <div>
         <img
           className="fixed top-0 left-0 w-full h-full object-cover opacity-10"
-          src="/assets/k-on.gif"
+          src="/assets/usesBg.gif"
           width="550"
           height="550"
           alt="background"
