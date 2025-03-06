@@ -4,16 +4,16 @@ import Curriculum from "~/components/Curriculum.client";
 
 export default function curriculum() {
   return (
-    <div className="justify-center items-center flex flex-col">
+    <div className="flex flex-col items-center justify-center">
       <div className="pt-4">
-        <h1 className="text-4xl text-center">Meu Currículo</h1>
+        <h1 className="text-center text-4xl">Meu Currículo</h1>
 
-        <span className="text-center text-gray-400 font-xs">
+        <span className="font-xs text-center text-gray-400">
           Fique a vontade para olhar e baixar meu currículo 😀{" "}
         </span>
       </div>
 
-      <div className="flex flex-col items-center justify-start h-screen pt-10 gap-4 shadow-md">
+      <div className="flex h-screen flex-col items-center justify-start gap-4 pt-10 shadow-md">
         <div>
           <ClientOnly>{() => <Curriculum />}</ClientOnly>
         </div>
@@ -23,7 +23,7 @@ export default function curriculum() {
         <a
           href="/curriculoTifany.pdf"
           download="Curriculo_Tifany_Alves.pdf"
-          className="inline-flex bg-gradient-to-r from-lime-300 to-cyan-500 gap-2 items-center px-4 py-2 text-sm font-medium text-foreground rounded-md transition-transform duration-300 transform hover:scale-105 hover:-translate-y-1"
+          className="inline-flex transform items-center gap-2 rounded-md bg-gradient-to-r from-lime-300 to-cyan-500 px-4 py-2 text-sm font-medium text-foreground transition-transform duration-300 hover:-translate-y-1 hover:scale-105"
         >
           <Download /> Baixar Currículo
         </a>

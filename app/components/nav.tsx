@@ -11,12 +11,12 @@ const menuItems = [
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#09090B]">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+    <header className="fixed left-0 right-0 top-0 z-50 bg-white dark:bg-[#09090B]">
+      <nav className="container mx-auto flex items-center justify-between px-4 py-4">
         <div>
           <Link
             to={"/"}
-            className="font-semibold text-2xl bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-transparent cursor-pointer"
+            className="cursor-pointer bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-2xl font-semibold text-transparent"
           >
             Pinuya
           </Link>
@@ -24,13 +24,13 @@ export default function Nav() {
 
         <ModeToggle />
 
-        <ul className="hidden md:flex space-x-6">
+        <ul className="hidden space-x-6 md:flex">
           {menuItems.map((item) => (
             <li key={item.name}>
               <Link to={item.href}>
-                <span className="relative cursor-pointer group">
+                <span className="group relative cursor-pointer">
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-lime-300 to-cyan-500 transition-all duration-300 ease-in-out group-hover:w-full" />
+                  <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-lime-300 to-cyan-500 transition-all duration-300 ease-in-out group-hover:w-full" />
                 </span>
               </Link>
             </li>
@@ -40,7 +40,7 @@ export default function Nav() {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-foreground hover:text-cyan-500 focus:outline-none"
+          className="text-foreground hover:text-cyan-500 focus:outline-none md:hidden"
         >
           <Menu className="h-6 w-6" />
           <span className="sr-only">Abrir menu</span>
@@ -49,12 +49,12 @@ export default function Nav() {
 
       {isOpen && (
         <div className="md:hidden">
-          <nav className="px-4 pt-2 pb-4 space-y-2">
+          <nav className="space-y-2 px-4 pb-4 pt-2">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className="block text-foreground hover:text-cyan-500 transition-colors"
+                className="block text-foreground transition-colors hover:text-cyan-500"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}

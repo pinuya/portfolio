@@ -5,13 +5,13 @@ export function Experiences({ experiences }: { experiences: Experience[] }) {
   return (
     <div className="relative">
       {experiences?.map((exp, index) => (
-        <div key={exp.id} className="flex gap-6 mb-8">
+        <div key={exp.id} className="mb-8 flex gap-6">
           <div className="pt-1">
             <MdWork className="text-2xl text-gray-600" />
           </div>
 
           <div className="flex-1">
-            <div className="flex flex-row gap-2 items-center">
+            <div className="flex flex-row items-center gap-2">
               <h3 className="text-2xl font-semibold">{exp.company}</h3>
               <span className="text-sm font-light text-gray-400">
                 {exp.duration}
@@ -23,13 +23,13 @@ export function Experiences({ experiences }: { experiences: Experience[] }) {
                 {exp.position}
               </span>
 
-              <p className="text-gray-400 mt-2 max-w-prose">
+              <p className="mt-2 max-w-prose text-gray-400">
                 {exp.description}
               </p>
             </div>
 
             {index !== experiences.length - 1 && (
-              <div className="text-3xl tracking-widest text-center rotate-90 mt-4 bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-transparent">
+              <div className="mt-4 rotate-90 bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-center text-3xl tracking-widest text-transparent">
                 ...
               </div>
             )}

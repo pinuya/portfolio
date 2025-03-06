@@ -39,13 +39,13 @@ const SkillIcon = ({ skill }: { skill: Skill }) => {
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
       >
-        <skill.icon className="w-6 h-6 text-gray-600 hover:text-gray-800 transition-colors cursor-pointer" />
+        <skill.icon className="h-6 w-6 cursor-pointer text-gray-600 transition-colors hover:text-gray-800" />
       </div>
 
       {showTooltip && (
-        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-sm text-white bg-black rounded-md whitespace-nowrap">
+        <div className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 transform whitespace-nowrap rounded-md bg-black px-2 py-1 text-sm text-white">
           <p>{skill.name}</p>
-          <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-black" />
+          <div className="absolute left-1/2 top-full -translate-x-1/2 transform border-4 border-transparent border-t-black" />
         </div>
       )}
     </div>
@@ -59,7 +59,7 @@ const SkillCategory = ({
   title: string;
   skills: Skill[];
 }) => (
-  <div className="flex items-center flex-col">
+  <div className="flex flex-col items-center">
     <h3 className="text-lg font-semibold">{title}</h3>
     <div className="p-4">
       <div className="flex flex-wrap gap-4">
