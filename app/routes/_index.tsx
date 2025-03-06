@@ -13,15 +13,17 @@ import {
 } from "~/components/ui/dialog";
 import { Button } from "~/components/ui/button";
 import type { Project } from "~/types";
-import { getProjects, getSkills } from "~/models";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "~/components/ui/carousel";
 import { Skills } from "~/components/skills";
-import { Experience } from "~/components/experience";
+import { Experiences } from "~/components/experience";
 import Autoplay from "embla-carousel-autoplay";
+import { getProjects } from "~/models/projects";
+import { getSkills } from "~/models/skills";
+import { getExperiences } from "~/models/experiences";
 
 export const meta: MetaFunction = () => {
   return [
@@ -34,15 +36,21 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  const [projects] = await Promise.all([getProjects(), getSkills()]);
+  const [projects, skills, experiences] = await Promise.all([
+    getProjects(),
+    getSkills(),
+    getExperiences(),
+  ]);
 
   return {
     projects,
+    skills,
+    experiences,
   };
 }
 
 export default function Main() {
-  const { projects } = useLoaderData<typeof loader>();
+  const { projects, skills, experiences } = useLoaderData<typeof loader>();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
@@ -138,7 +146,7 @@ export default function Main() {
             <div className="flex flex-col gap-28">
               <Skills />
 
-              <Experience />
+              <Experiences experiences={experiences} />
             </div>
           </motion.section>
 

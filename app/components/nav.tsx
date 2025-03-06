@@ -6,7 +6,6 @@ import { Menu } from "lucide-react";
 const menuItems = [
   { name: "Sobre", href: "/#about" },
   { name: "Projetos", href: "/#projects" },
-  { name: "Contato", href: "/contact" },
 ];
 
 export default function Nav() {

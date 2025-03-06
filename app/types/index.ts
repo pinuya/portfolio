@@ -1,8 +1,9 @@
 export interface Experience {
+	id: number
 	company: string
 	position: string
 	duration: string
-	description: string[]
+	description: string
 }
 
 export interface Project {
