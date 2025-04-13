@@ -19,7 +19,7 @@ export function Experiences({ experiences }: { experiences: Experience[] }) {
             </div>
 
             <div className="mt-2">
-              <span className="bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-pink-300 to-purple-300 bg-clip-text text-transparent">
                 {exp.position}
               </span>
 
@@ -29,7 +29,7 @@ export function Experiences({ experiences }: { experiences: Experience[] }) {
             </div>
 
             {index !== experiences.length - 1 && (
-              <div className="mt-4 rotate-90 bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-center text-3xl tracking-widest text-transparent">
+              <div className="mt-4 rotate-90 bg-gradient-to-r from-pink-300 to-purple-300 bg-clip-text text-center text-3xl tracking-widest text-transparent">
                 ...
               </div>
             )}

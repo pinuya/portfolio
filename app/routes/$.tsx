@@ -22,7 +22,7 @@ export default function Fallback() {
 
       <Link
         to={"/"}
-        className="inline-flex transform items-center gap-2 rounded-md bg-gradient-to-r from-blue-500 to-purple-500 px-4 py-2 text-sm font-medium text-foreground transition-transform duration-300 hover:-translate-y-1 hover:scale-105"
+        className="inline-flex transform items-center gap-2 rounded-md bg-gradient-to-r from-pink-300 to-purple-400 px-4 py-2 text-sm font-medium text-foreground transition-transform duration-300 hover:-translate-y-1 hover:scale-105"
       >
         <ArrowLeft className="h-5 w-5" />
         Volte para inicio

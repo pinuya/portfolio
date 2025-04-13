@@ -39,7 +39,7 @@ const SkillIcon = ({ skill }: { skill: Skill }) => {
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
       >
-        <skill.icon className="h-6 w-6 cursor-pointer text-gray-600 transition-colors hover:text-gray-800" />
+        <skill.icon className="h-6 w-6 cursor-pointer text-gray-600 transition-colors hover:text-pink-300" />
       </div>
 
       {showTooltip && (

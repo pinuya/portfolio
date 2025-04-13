@@ -24,6 +24,9 @@ import Autoplay from "embla-carousel-autoplay";
 import { getProjects } from "~/models/projects";
 import { getSkills } from "~/models/skills";
 import { getExperiences } from "~/models/experiences";
+import Typewriter from "fancy/components/text/typewriter";
+import { DecoderText } from "~/components/decoder-text";
+import { VisibleDecoderText } from "~/components/decoder-text/VisibleDecoderText";
 
 export const meta: MetaFunction = () => {
   return [
@@ -50,118 +53,64 @@ export async function loader() {
 }
 
 export default function Main() {
-  const { projects, skills, experiences } = useLoaderData<typeof loader>();
+  const { projects, experiences } = useLoaderData<typeof loader>();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <div className="flex min-h-screen w-full flex-col">
+      {/* Background gradients */}
       <div className="pointer-events-none fixed inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
-        <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-blue-500/10 blur-[100px]" />
-        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-cyan-500/10 blur-[100px]" />
+        <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-pink-500/10 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-pink-500/10 blur-[100px]" />
       </div>
 
       <div className="z-10 flex min-h-[100dvh] flex-col">
         <main className="flex-1">
           <section
             id="hero"
-            className="flex h-screen flex-col items-center justify-center gap-16 pt-20"
+            className="flex min-h-screen w-full flex-col items-center justify-center px-4 py-20"
           >
-            <div className="flex flex-col items-center gap-4 sm:flex-row">
-              <div>
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  <h1 className="text-6xl">Hello World.</h1>
-                  <h1 className="text-4xl">
-                    I'm{" "}
-                    <span className="bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text font-bold text-transparent">
-                      Tifany.
-                    </span>
-                  </h1>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                >
-                  <span className="text-gray-400">
-                    Web Designer | Software Engineer
-                  </span>
-                  <p className="mt-4 w-96 text-gray-400">
-                    Uma <b>Software Engineer</b> com foco no <b>Front-End</b>.
-                    Buscando sempre desenvolver telas robustas e responsivas.
-                    Sinto-me confortável projetando meus próprios designs e
-                    aplicando-os na prática durante o desenvolvimento. Voce pode
-                    conferir meu{" "}
-                    <Link to={"/curriculum"}>
-                      <span className="group relative cursor-pointer bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-transparent">
-                        curriculo aqui.
-                        <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-lime-300 to-cyan-500 transition-all duration-300 ease-in-out group-hover:w-full" />
-                      </span>
-                    </Link>{" "}
-                    Se você está interessado nas ferramentas e softwares que
-                    utilizo, confira minha{" "}
-                    <Link to={"/uses"}>
-                      <span className="group relative cursor-pointer bg-gradient-to-r from-lime-300 to-cyan-500 bg-clip-text text-transparent">
-                        página de uso
-                        <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-lime-300 to-cyan-500 transition-all duration-300 ease-in-out group-hover:w-full" />
-                      </span>
-                    </Link>
-                    .
-                  </p>
-                </motion.div>
-              </div>
-
-              <motion.img
-                src="/pinuya.jpg"
-                className="aspect-square w-96 rounded-full"
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7, duration: 0.8 }}
+            <h1 className="font-semibold uppercase tracking-widest text-muted-foreground md:text-xl">
+              <DecoderText text={"Tifany Nunes"} delay={500} />
+            </h1>
+            <p className="whitespace-pre-wrap text-center text-4xl font-semibold sm:text-5xl md:text-7xl">
+              <span>{"Front-End Developer"}</span>
+              <Typewriter
+                text={["+ Developer", "+ Web Designer", "+ Software Engineer"]}
+                speed={70}
+                className="text-pink-300"
+                waitTime={1500}
+                deleteSpeed={40}
+                cursorChar={"_"}
               />
-            </div>
+            </p>
+          </section>
 
+          <div className="flex w-full justify-center py-10">
             <motion.div
-              className="hidden flex-col items-center p-20 sm:block"
+              className="hidden flex-col items-center sm:flex"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
             >
-              <div className="h-12 w-1 animate-pulse rounded-full bg-gradient-to-b from-lime-300 to-cyan-600 dark:from-lime-400 dark:to-cyan-400" />
+              <div className="h-12 w-1 animate-pulse rounded-full bg-gradient-to-b from-pink-300 to-purple-600 dark:from-pink-400 dark:to-purple-400" />
             </motion.div>
-          </section>
-
-          <motion.section
-            id="skills"
-            className="flex flex-col items-center justify-center gap-10 py-10"
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
-          >
-            <h1 className="text-center text-4xl">Habilidades e experiência</h1>
-
-            <div className="flex flex-col gap-28">
-              <Skills />
-
-              <Experiences experiences={experiences} />
-            </div>
-          </motion.section>
-
-          <section id="projects">
+          </div>
+          <section id="projects" className="w-full px-4 py-24">
             <motion.div
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.8 }}
-              className="flex flex-col items-center justify-center"
+              className="container mx-auto flex flex-col items-center justify-center"
             >
-              <h1 className="my-20 text-4xl">Projetos</h1>
+              <h1 className="mb-12 text-center text-3xl uppercase tracking-widest">
+                <DecoderText text={"Projetos"} delay={500} />
+              </h1>
               <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="w-[300px] sm:w-[1280px]"
+                className="w-full max-w-7xl px-4"
               >
                 <Carousel
                   className="w-full"
@@ -207,6 +156,7 @@ export default function Main() {
                 </Carousel>
               </motion.div>
 
+              {/* Project Dialog */}
               <Dialog
                 open={selectedProject !== null}
                 onOpenChange={() => setSelectedProject(null)}
@@ -224,8 +174,8 @@ export default function Main() {
                         <p>{selectedProject.details}</p>
                       </DialogDescription>
                     </DialogHeader>
-                    <div className="mt-4 flex justify-between">
-                      <div className="flex gap-2">
+                    <div className="mt-4 flex flex-wrap justify-between gap-2">
+                      <div className="flex flex-wrap gap-2">
                         <div>
                           <Link to={selectedProject.link ?? "#"}>
                             <Button
@@ -241,7 +191,7 @@ export default function Main() {
                           <div>
                             <Link to={selectedProject.website}>
                               <Button
-                                className="rounded-full bg-gradient-to-r from-lime-300 to-cyan-500 px-4 py-2 font-medium text-white transition-colors duration-300 hover:shadow-md"
+                                className="rounded-full bg-gradient-to-r from-pink-300 to-purple-400 px-4 py-2 font-medium text-white transition-colors duration-300 hover:shadow-md"
                                 variant={"secondary"}
                               >
                                 <ArrowUpRight className="h-4 w-4" /> Ver Site
@@ -256,6 +206,105 @@ export default function Main() {
               </Dialog>
             </motion.div>
           </section>
+
+          {/* About Section */}
+          <section
+            id="about"
+            className="w-full bg-pink-100 bg-opacity-5 px-4 py-24"
+          >
+            <div className="container mx-auto">
+              <div className="flex flex-col items-center justify-center lg:flex-row lg:justify-between lg:gap-16">
+                <div className="mb-10 max-w-xl lg:mb-0">
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                  >
+                    <h1 className="text-2xl font-semibold">
+                      Hello World ✨ I'm{" "}
+                      <span className="bg-gradient-to-r from-pink-300 to-purple-400 bg-clip-text font-bold text-transparent">
+                        Tifany.
+                      </span>
+                    </h1>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                  >
+                    <span className="text-gray-400">
+                      Web Designer | Software Engineer
+                    </span>
+                    <p className="mt-4 text-gray-400">
+                      Uma <b>Software Engineer</b> com foco em <b>Front-End</b>.
+                      Atualmente moro no Brasil e atuo como desenvolvedora
+                      Front-End Jr na{" "}
+                      <Link
+                        to={
+                          "https://www.linkedin.com/company/utrip/posts/?feedView=all"
+                        }
+                      >
+                        <span className="cursor-pointer bg-gradient-to-r from-pink-300 to-purple-400 bg-clip-text text-transparent">
+                          Utrip
+                        </span>
+                      </Link>
+                      . Meus projetos envolvem design de UX, animações de UI e
+                      ilustração de ícones. Minha familiaridade com código me
+                      permite prototipar e validar experiências de forma ágil.
+                      Busco sempre desenvolver interfaces robustas e
+                      responsivas. Sinto-me à vontade para criar meus próprios
+                      designs e implementá-los durante o desenvolvimento. Você
+                      pode conferir meu{" "}
+                      <Link to={"/curriculum"}>
+                        {" "}
+                        <span className="cursor-pointer bg-gradient-to-r from-pink-300 to-purple-400 bg-clip-text text-transparent">
+                          {" "}
+                          currículo aqui.{" "}
+                        </span>{" "}
+                      </Link>{" "}
+                      Adoro adicionar easter eggs nas minhas aplicações, então…
+                      boa sorte procurando alguns no meu portfólio! :3
+                    </p>
+                  </motion.div>
+                </div>
+
+                <motion.div
+                  className="w-full max-w-md"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.7, duration: 0.8 }}
+                >
+                  <img
+                    src="/pinuya.jpg"
+                    className="w-full rounded-xl shadow-lg"
+                    alt="Tifany Nunes"
+                  />
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
+          <motion.section
+            id="xp"
+            className="w-full px-4 py-24"
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+          >
+            <div className="container mx-auto">
+              <h1 className="mb-16 text-center text-3xl uppercase tracking-widest">
+                <VisibleDecoderText
+                  text={"Experiência e habilidades"}
+                  delay={500}
+                />
+              </h1>
+
+              <div className="flex flex-col items-center gap-24">
+                <Experiences experiences={experiences} />
+                <Skills />
+              </div>
+            </div>
+          </motion.section>
         </main>
       </div>
     </div>
