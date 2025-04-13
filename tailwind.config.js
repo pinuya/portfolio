@@ -20,6 +20,7 @@ export default {
       fontFamily: {
         dmSans: ["DM Sans", "sans-serif"],
       },
+
       colors: {
         custonText: "#EDADBD",
         border: "hsl(var(--border))",
@@ -70,10 +71,17 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        screensaver: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "25%": { transform: "translate(30vw, 10vh)" },
+          "50%": { transform: "translate(10vw, 30vh)" },
+          "75%": { transform: "translate(50vw, 50vh)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        screensaver: "screensaver 20s ease-in-out infinite alternate",
       },
     },
   },
