@@ -35,7 +35,7 @@
     "gen": "^2.0.1",
     "isbot": "^4.1.0",
     "lucide-react": "^0.378.0",
-    "motion": "^11.17.0",
+    "motion": "^12.6.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
