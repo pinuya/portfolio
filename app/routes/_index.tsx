@@ -27,6 +27,8 @@ import { getExperiences } from "~/models/experiences";
 import Typewriter from "fancy/components/text/typewriter";
 import { DecoderText } from "~/components/decoder-text";
 import { VisibleDecoderText } from "~/components/decoder-text/VisibleDecoderText";
+import MediaBetweenText from "fancy/components/blocks/media-between-text";
+import useScreenSize from "../../hooks/useScreenSize";
 
 export const meta: MetaFunction = () => {
   return [
@@ -53,6 +55,7 @@ export async function loader() {
 }
 
 export default function Main() {
+  const screenSize = useScreenSize();
   const { projects, experiences } = useLoaderData<typeof loader>();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -207,7 +210,6 @@ export default function Main() {
             </motion.div>
           </section>
 
-          {/* About Section */}
           <section
             id="about"
             className="w-full bg-pink-100 bg-opacity-5 px-4 py-24"
@@ -305,6 +307,31 @@ export default function Main() {
               </div>
             </div>
           </motion.section>
+
+          <section className="flex flex-col items-center justify-center">
+            <a
+              href="https://github.com/pinuya"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <MediaBetweenText
+                firstText="Obrigada pela ("
+                secondText=") visita!"
+                mediaUrl={"/godbye.gif"}
+                mediaType="image"
+                triggerType="hover"
+                mediaContainerClassName="mx-px mt-1 h-[30px] w-full overflow-hidden sm:mx-2 sm:mt-4 sm:h-[100px]"
+                className="flex w-full cursor-pointer flex-row items-center justify-center text-2xl font-light lowercase text-pink-300 sm:text-4xl"
+                animationVariants={{
+                  initial: { width: 0 },
+                  animate: {
+                    width: screenSize.lessThan("sm") ? "30px" : "100px",
+                    transition: { duration: 0.4, type: "spring", bounce: 0 },
+                  },
+                }}
+              />
+            </a>
+          </section>
         </main>
       </div>
     </div>
