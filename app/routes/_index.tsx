@@ -180,7 +180,7 @@ export default function Main() {
                     <div className="mt-4 flex flex-wrap justify-between gap-2">
                       <div className="flex flex-wrap gap-2">
                         <div>
-                          <Link to={selectedProject.link ?? "#"}>
+                          <Link to={selectedProject.link ?? "/"}>
                             <Button
                               className="rounded-full px-4 py-2 font-medium text-foreground transition-colors duration-300"
                               variant={"secondary"}
