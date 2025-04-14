@@ -23,8 +23,6 @@ export default function Nav() {
           </Link>
         </div>
 
-        <ModeToggle />
-
         <ul className="hidden space-x-6 md:flex">
           {menuItems.map((item) => (
             <li key={item.name}>
@@ -37,6 +35,8 @@ export default function Nav() {
             </li>
           ))}
         </ul>
+
+        <ModeToggle />
 
         <button
           type="button"
