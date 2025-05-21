@@ -32,11 +32,46 @@ import useScreenSize from "../../hooks/useScreenSize";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Tifany Nunes" },
+    { title: "Tifany Nunes | Desenvolvedora Web" },
     {
-      name: "Portfolio contendo informacoes e projetos pessoais de Tifany Nunes",
-      content: "Portfolio",
+      name: "description",
+      content:
+        "Portfolio profissional de Tifany Nunes, desenvolvedora web especializada em React, Remix e tecnologias front-end modernas.",
     },
+    {
+      name: "keywords",
+      content:
+        "Tifany Nunes, desenvolvedora web, portfolio, remix, react, frontend",
+    },
+    { name: "author", content: "Tifany Nunes" },
+    { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+    { property: "og:title", content: "Tifany Nunes | Desenvolvedora Web" },
+    {
+      property: "og:description",
+      content:
+        "Portfolio profissional de Tifany Nunes, desenvolvedora web especializada em React, Remix e tecnologias front-end modernas.",
+    },
+    {
+      property: "og:image",
+      content: "https://pinuya.site/assets/portifolio.png",
+    },
+    { property: "og:url", content: "https://pinuya.site" },
+    { property: "og:type", content: "website" },
+    { property: "og:locale", content: "pt_BR" },
+
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Tifany Nunes | Desenvolvedora Web" },
+    {
+      name: "twitter:description",
+      content:
+        "Portfolio profissional de Tifany Nunes, desenvolvedora web especializada em React, Remix e tecnologias front-end modernas.",
+    },
+    {
+      name: "twitter:image",
+      content: "https://pinuya.site/assets/portifolio.png",
+    },
+
+    { tagName: "link", rel: "canonical", href: "https://pinuya.site" },
   ];
 };
 
@@ -61,7 +96,6 @@ export default function Main() {
 
   return (
     <div className="flex min-h-screen w-full flex-col">
-      {/* Background gradients */}
       <div className="pointer-events-none fixed inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
         <div className="absolute right-0 top-0 h-[500px] w-[500px] bg-pink-500/10 blur-[100px]" />
@@ -159,7 +193,6 @@ export default function Main() {
                 </Carousel>
               </motion.div>
 
-              {/* Project Dialog */}
               <Dialog
                 open={selectedProject !== null}
                 onOpenChange={() => setSelectedProject(null)}
