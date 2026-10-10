@@ -4,10 +4,11 @@ import {
   DiJavascript as Javascript,
   DiMongodb as Database,
 } from "react-icons/di";
-import { FaReact as ReactIcon } from "react-icons/fa";
+import { FaReact as ReactIcon, FaJava as Java } from "react-icons/fa";
 import {
   SiNextdotjs as NextJs,
   SiExpress as Server,
+  SiNestjs as NestJs,
   SiKubernetes as Kubernate,
 } from "react-icons/si";
 import {
@@ -23,52 +24,45 @@ import {
   FaFigma as Figma,
 } from "react-icons/fa";
 import { VscVscode as VsCode } from "react-icons/vsc";
-import React from "react";
+import type React from "react";
+import { motion } from "framer-motion";
 
 interface Skill {
   name: string;
   icon: React.ElementType;
 }
 
-const SkillIcon = ({ skill }: { skill: Skill }) => {
-  const [showTooltip, setShowTooltip] = React.useState(false);
-
-  return (
-    <div className="relative inline-block">
-      <div
-        onMouseEnter={() => setShowTooltip(true)}
-        onMouseLeave={() => setShowTooltip(false)}
-      >
-        <skill.icon className="h-6 w-6 cursor-pointer text-gray-600 transition-colors hover:text-pink-300" />
-      </div>
-
-      {showTooltip && (
-        <div className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 transform whitespace-nowrap rounded-md bg-black px-2 py-1 text-sm text-white">
-          <p>{skill.name}</p>
-          <div className="absolute left-1/2 top-full -translate-x-1/2 transform border-4 border-transparent border-t-black" />
-        </div>
-      )}
-    </div>
-  );
-};
-
 const SkillCategory = ({
   title,
   skills,
+  index,
 }: {
   title: string;
   skills: Skill[];
+  index: number;
 }) => (
-  <div className="flex flex-col items-center">
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <div className="p-4">
-      <div className="flex flex-wrap gap-4">
-        {skills.map((skill) => (
-          <SkillIcon key={skill.name} skill={skill} />
-        ))}
-      </div>
-    </div>
-  </div>
+  <motion.div
+    className="rounded-xl border bg-card/60 p-6 backdrop-blur-sm transition-colors hover:border-pink-300/50"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+  >
+    <h3 className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      {title}
+    </h3>
+    <ul className="flex flex-wrap gap-2">
+      {skills.map((skill) => (
+        <li
+          key={skill.name}
+          className="group flex items-center gap-2 rounded-full border bg-background/60 px-3 py-1.5 text-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-pink-300/60 hover:shadow-md hover:shadow-pink-500/10"
+        >
+          <skill.icon className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-pink-500 dark:group-hover:text-pink-300" />
+          {skill.name}
+        </li>
+      ))}
+    </ul>
+  </motion.div>
 );
 
 export function Skills() {
@@ -84,7 +78,9 @@ export function Skills() {
 
   const backendSkills: Skill[] = [
     { name: "Node.js", icon: NodeJs },
+    { name: "NestJS", icon: NestJs },
     { name: "Express", icon: Server },
+    { name: "Java", icon: Java },
     { name: "Supabase", icon: Supabase },
     { name: "SQL", icon: Sql },
     { name: "MongoDB", icon: Database },
@@ -103,11 +99,11 @@ export function Skills() {
   ];
 
   return (
-    <div className="grid gap-6 md:grid-cols-2">
-      <SkillCategory title="Frontend" skills={frontendSkills} />
-      <SkillCategory title="Backend" skills={backendSkills} />
-      <SkillCategory title="DevOps" skills={devopsSkills} />
-      <SkillCategory title="Tools" skills={toolsSkills} />
+    <div className="grid w-full max-w-3xl gap-6 md:grid-cols-2">
+      <SkillCategory index={0} title="Frontend" skills={frontendSkills} />
+      <SkillCategory index={1} title="Backend" skills={backendSkills} />
+      <SkillCategory index={2} title="DevOps" skills={devopsSkills} />
+      <SkillCategory index={3} title="Tools" skills={toolsSkills} />
     </div>
   );
 }
