@@ -61,6 +61,9 @@
   html {
     scroll-behavior: smooth;
   }
+  ::selection {
+    @apply bg-pink-300/40;
+  }
   .progress-bar {
     position: fixed;
     top: 0;
@@ -69,5 +72,24 @@
     height: 10px;
     background: #404040;
     transform-origin: 0%;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent dark:from-pink-300 dark:to-purple-400;
+  }
+  .bg-gradient-brand {
+    @apply bg-gradient-to-r from-pink-400 to-purple-500 dark:from-pink-300 dark:to-purple-400;
+  }
+  .bg-grid {
+    background-image: linear-gradient(
+        to right,
+        hsl(var(--foreground) / 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, hsl(var(--foreground) / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
   }
 }
